@@ -360,7 +360,7 @@ def main(_):
                 true_test_labels = numpy.vstack([true_test_labels, test_batch[1]])
         fpr, tpr, _ = roc_curve(true_test_labels[:, 0], pred_test_labels[:, 0])
         roc_auc = auc(fpr, tpr)
-        print("%s, dataset %g, final test roc auc %g" % (_datasets[dataset_num], dataset_num, roc_auc))
+        print("%s, dataset %g, final test roc auc: %g" % (_datasets[dataset_num], dataset_num, roc_auc))
         f = open(file_name, 'a')
         f.write(str(dataset_num) + ',' + _datasets[dataset_num] + ',' + str(roc_auc) + '\n')
         f.close()
