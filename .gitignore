@@ -107,3 +107,4 @@ venv.bak/
 .idea/
 data/cnn.csail.mit.edu/
 project_code/
+*.csv
