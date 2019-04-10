@@ -108,3 +108,5 @@ venv.bak/
 data/cnn.csail.mit.edu/
 project_code/
 *.csv
+nohup.out
+*out
