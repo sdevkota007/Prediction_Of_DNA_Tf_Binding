@@ -179,7 +179,12 @@ def load_ENCODE_k562_dataset(dataset_num):
         else:
             fname = 'train.data'
         full_filename = '../data/cnn.csail.mit.edu/motif_occupancy/' + dataset_name + '/' + fname
-        f = open(full_filename)
+        try:
+            f = open(full_filename)
+        except FileNotFoundError:
+            print("{} not found. Skipping this file. Might create further bugs")
+            continue
+
         num_lines = 0
         for line in f:
             match = re.search("chr([0123456789]+):([0123456789]*)-([0123456789]*) ([ATGC]+) ([01])", line)
