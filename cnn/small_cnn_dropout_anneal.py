@@ -14,6 +14,7 @@ import math
 import time
 
 import tensorflow as tf
+import utils
 
 numpy.set_printoptions(threshold=numpy.nan) # print all contents when printing numpy arrays (good for debugging)
 
@@ -378,6 +379,8 @@ def main(_):
     f=open(file_name,'w') # clear file
     f.write('dataset_num,dataset_type(0==motif occupancy/1==motif discovery),dataset_name,roc_auc\n')
     f.close()
+    _datasets = utils.remove_non_existing_datafiles(_datasets)
+
     for dataset_num in range(0, len(_datasets)):
         for dataset_type in range(0,2): # 0==motif occupancy, 1==motif discovery
             load_ENCODE_k562_dataset(dataset_num, dataset_type)

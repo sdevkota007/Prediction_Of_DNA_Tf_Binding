@@ -3,6 +3,7 @@ from __future__ import division
 from __future__ import print_function
 
 import argparse
+import utils
 
 # from tensorflow.contrib.learn.python.learn.datasets import base
 from tensorflow.contrib.layers.python.layers.layers import batch_norm, convolution2d, max_pool2d, fully_connected, \
@@ -293,6 +294,8 @@ def main(_):
     f = open(file_name, 'w')  # clear file
     f.write('dataset_num,dataset_name,roc_auc\n')
     f.close()
+
+    _datasets = utils.remove_non_existing_datafiles(_datasets)
     for dataset_num in range(0, len(_datasets)):
         load_ENCODE_k562_dataset(dataset_num)
 

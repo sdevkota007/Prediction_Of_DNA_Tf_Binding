@@ -15,6 +15,7 @@ import math
 import time
 
 import tensorflow as tf
+import utils
 
 numpy.set_printoptions(threshold=numpy.nan) # print all contents when printing numpy arrays (good for debugging)
 
@@ -327,6 +328,8 @@ def main(_):
     f=open(file_name,'w') # clear file
     f.write('dataset_num,motif_discovery=0|motif_occupancy=1,dataset_name,roc_auc,prc_auc,time(sec)\n')
     f.close()
+    _datasets = utils.remove_non_existing_datafiles(_datasets)
+
     for dataset_num in range(0, len(_datasets)):
         for motif_occ in range(0,2):
             success = False
