@@ -101,15 +101,19 @@ def get_next_batch(dataset_to_use=0, batch_size=128):
     global _index_in_epoch_train
     global _index_in_epoch_test
     global _index_in_epoch_validation
+
     global _train_features
-    global _train_labels
-    global _validation_features
-    global _validation_labels
     global _test_features
+    global _validation_features
+
+    global _train_labels
     global _test_labels
+    global _validation_labels
+
     global _train_epochs_completed
-    global _validation_epochs_completed
     global _test_epochs_completed
+    global _validation_epochs_completed
+
     if dataset_to_use == 0:
         index_in_epoch = _index_in_epoch_train
         num_examples = _train_features.shape[0]
@@ -119,6 +123,7 @@ def get_next_batch(dataset_to_use=0, batch_size=128):
     elif dataset_to_use == 2:
         index_in_epoch = _index_in_epoch_test
         num_examples = _test_features.shape[0]
+
     start = index_in_epoch
     index_in_epoch += batch_size
     if index_in_epoch > num_examples:
@@ -160,17 +165,22 @@ def load_ENCODE_k562_dataset(dataset_num):
     global _index_in_epoch_train
     global _index_in_epoch_test
     global _index_in_epoch_validation
+
     global _train_features
-    global _train_labels
-    global _validation_features
-    global _validation_labels
     global _test_features
+    global _validation_features
+
+    global _train_labels
     global _test_labels
+    global _validation_labels
+
     global _train_epochs_completed
-    global _validation_epochs_completed
     global _test_epochs_completed
+    global _validation_epochs_completed
+
     global _datasets
     global _validation_size
+
     dataset_name = _datasets[dataset_num]
     test_features = None
     test_labels = None
@@ -251,13 +261,17 @@ def load_ENCODE_k562_dataset(dataset_num):
                               0] * 0.15)  # percent of training features to use as validation set; 0 to disable validation set
     _validation_features = train_features[:validation_size]
     _validation_labels = train_labels[:validation_size]
+
     _train_features = train_features[validation_size:]
     _train_labels = train_labels[validation_size:]
+
     _test_features = test_features
     _test_labels = test_labels
+
     _train_epochs_completed = 0
     _validation_epochs_completed = 0
     _test_epochs_completed = 0
+
     _validation_size = validation_size
 
 

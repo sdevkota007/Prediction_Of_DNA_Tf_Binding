@@ -149,15 +149,19 @@ def get_next_batch(dataset_to_use=0, batch_size=128):
     global _index_in_epoch_train
     global _index_in_epoch_test
     global _index_in_epoch_validation
+
     global _train_features
-    global _train_labels
     global _validation_features
-    global _validation_labels
     global _test_features
+
+    global _train_labels
+    global _validation_labels
     global _test_labels
+
     global _train_epochs_completed
     global _validation_epochs_completed
     global _test_epochs_completed
+
     if dataset_to_use == 0:
         index_in_epoch = _index_in_epoch_train
         num_examples = _train_features.shape[0]
@@ -333,7 +337,7 @@ def main(_):
         x_image = tf.reshape(x, [-1,101,4,1])
 
         # CONVOLUTIONAL LAYER(S)
-        n_conv1 = 384
+        n_conv1 = 64    #originally 384
         L_conv1 = 9
         maxpool_len1 = 2
         conv1 = convolution2d(x_image, n_conv1, [L_conv1,4], padding='VALID', normalizer_fn=None)
