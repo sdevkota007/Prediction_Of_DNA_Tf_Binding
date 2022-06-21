@@ -37,7 +37,7 @@ Markdown==3.1
 MarkupSafe==1.0
 mock==2.0.0
 netifaces==0.10.4
-numpy==1.15.3
+numpy==1.22.0
 oauthlib==2.0.6
 PAM==0.4.2
 pbr==5.1.3
